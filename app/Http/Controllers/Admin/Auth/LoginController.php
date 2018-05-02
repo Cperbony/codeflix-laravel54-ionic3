@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeFlix\Http\Controllers\Auth;
+namespace CodeFlix\Http\Controllers\Admin\Auth;
 
 use CodeFlix\Http\Controllers\Controller;
 use CodeFlix\Models\User;
