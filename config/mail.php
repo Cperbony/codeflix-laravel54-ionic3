@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'claus@codeflix.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
@@ -80,7 +80,7 @@ return [
     |
     | If your SMTP server requires a username for authentication, you should
     | set it here. This will get used to authenticate with your server on
-    | connection. You may also set the "password" value below this one.
+    | connection. You may also set the "passwords" value below this one.
     |
     */
 

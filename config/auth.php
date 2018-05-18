@@ -7,7 +7,7 @@ return [
     | Authentication Defaults
     |--------------------------------------------------------------------------
     |
-    | This option controls the default authentication "guard" and password
+    | This option controls the default authentication "guard" and passwords
     | reset options for your application. You may change these defaults
     | as required, but they're a perfect start for most applications.
     |
@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'password' => 'users',
     ],
 
     /*
@@ -81,9 +81,9 @@ return [
     | Resetting Passwords
     |--------------------------------------------------------------------------
     |
-    | You may specify multiple password reset configurations if you have more
+    | You may specify multiple passwords reset configurations if you have more
     | than one user table or model in the application and you want to have
-    | separate password reset settings based on the specific user types.
+    | separate passwords reset settings based on the specific user types.
     |
     | The expire time is the number of minutes that the reset token should be
     | considered valid. This security feature keeps tokens short-lived so
@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'passwords' => [
+    'password' => [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
