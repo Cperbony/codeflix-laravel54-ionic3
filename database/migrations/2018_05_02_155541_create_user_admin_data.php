@@ -28,7 +28,7 @@ class CreateUserAdminData extends Migration
      */
     public function down()
     {
-        $user = User::where('email', '=', env('ADMIN_DEFAULT_PASSWORD', 'secret'))->first();
+        $user = (new CodeFlix\Models\User)->where('email', '=', env('ADMIN_DEFAULT_PASSWORD', 'secret'))->first();
         if($user instanceof User) {
             $user->delete();
         }
