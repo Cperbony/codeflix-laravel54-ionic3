@@ -25,11 +25,11 @@ Route::get('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')
     ->name('password.request');
 
-Route::get('email-verification/error', 'EmailVerificationController@getVerificationError')
-    ->name('email-verification.error');
-
-Route::get('email-verification/check/{token}', 'EmailVerificationController@getVerification')
-    ->name('email-verification.check');
+//Route::get('email-verification/error', 'EmailVerificationController@getVerificationError')
+//    ->name('email-verification.error');
+//
+//Route::get('email-verification/check/{token}', 'EmailVerificationController@getVerification')
+//    ->name('email-verification.check');
 
 //Auth::routes();
 
