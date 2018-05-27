@@ -167,8 +167,10 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-        \Bootstrapper\BootstrapperL5ServiceProvider::class,
+        Bootstrapper\BootstrapperL5ServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        Jrean\UserVerification\UserVerificationServiceProvider::class,
 
 
         /*
@@ -179,6 +181,7 @@ return [
         // CodeFlix\Providers\BroadcastServiceProvider::class,
         CodeFlix\Providers\EventServiceProvider::class,
         CodeFlix\Providers\RouteServiceProvider::class,
+        \CodeFlix\Providers\RepositoryServiceProvider::class,
 
     ],
 
@@ -230,6 +233,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
+
+        'UserVerification' => \Jrean\UserVerification\Facades\UserVerification::class,
 
         // BootstrapperL5ServiceProviders
 //        'Table' => Bootstrapper\Facades\Table::class,
