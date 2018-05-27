@@ -1,3 +1,12 @@
+##FASE 1
+* A autenticação administrativa dos usuários com verificação da conta.
+* A administração de usuários.
+* Uma área em que o usuário possa alterar sua senha. Cria duas rotas, uma para mostrar o formulário de alteração de senha e outra para realizar o processo. Quando o usuário validar a conta, deve ser redirecionado para a área de alteração de senha.
+* A administração de categorias. Cada categoria terá id e name.
+
+Faça todas as implementações usando repositórios e acrescente a barra de menus com os links necessários.
+
+<b> ------------------------------------------------------</b>
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">

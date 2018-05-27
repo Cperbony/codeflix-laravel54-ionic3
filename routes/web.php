@@ -31,28 +31,23 @@ Route::get('email-verification/error', 'EmailVerificationController@getVerificat
 Route::get('email-verification/check/{token}', 'EmailVerificationController@getVerification')
     ->name('email-verification.check');
 
-//Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
-
-Route::group([
-    'prefix' => 'admin',
-    'as' => 'admin.',
-    'namespace' => 'Admin\\'],
-    function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin\\'], function () {
         Route::group(['middleware' => ['isVerified', 'can:admin']], function () {
-            Route::name('logout')->post('logout', 'Auth\LoginController@logout');
+            Route::post('logout', 'Auth\LoginController@logout')
+                ->name('logout');
             Route::get('dashboard', function () {
                 return view('admin.dashboard');
             });
 
+            Route::get('users-settings/change-password', 'Auth\UserSettingsController@changePassword')
+                ->name('users-settings.change-password');
+
+            Route::put('users-settings/change-password', 'Auth\UserSettingsController@updatePassword')
+                ->name('users-settings.update-password');
+
             Route::resource('users', 'UsersController');
-
-            Route::get('users/change-password', 'UsersController@changePassword')
-                ->name('users.change-password');
-
-            Route::get('users/change-password', 'UsersController@updatePassword')
-                ->name('users.update-password');
+            Route::resource('users-settings', 'Auth\UserSettingsController');
+            Route::resource('categories', 'CategoriesController');
 
         });
 
