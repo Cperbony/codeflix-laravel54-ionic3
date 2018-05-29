@@ -48,6 +48,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin\\'], 
             Route::resource('users', 'UsersController');
             Route::resource('users-settings', 'Auth\UserSettingsController');
             Route::resource('categories', 'CategoriesController');
+            Route::resource('series', 'SeriesController');
 
         });
 

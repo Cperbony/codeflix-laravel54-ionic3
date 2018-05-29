@@ -8,7 +8,7 @@
 
 namespace CodeFlix\Http\Controllers\Admin\Auth;
 
-use CodeFlix\Forms\PasswordForm;
+use CodeFlix\Forms\UserPasswordForm;
 use CodeFlix\Http\Controllers\Admin\UsersController;
 use CodeFlix\Repositories\UserRepository;
 
@@ -29,7 +29,7 @@ class UserSettingsController
      */
     public function changePassword()
     {
-        $form = \FormBuilder::create(PasswordForm::class, [
+        $form = \FormBuilder::create(UserPasswordForm::class, [
             'url' => route('admin.users-settings.update-password'),
             'method' => 'put'
         ]);
@@ -41,7 +41,7 @@ class UserSettingsController
      */
     public function updatePassword()
     {
-        $form = \FormBuilder::create(PasswordForm::class);
+        $form = \FormBuilder::create(UserPasswordForm::class);
         $this->checkIsFormValid($form);
         $data = array_only($form->getFieldValues(), ['password']);
         $this->repository->updatePassword($data, \Auth::user()->id);

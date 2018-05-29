@@ -12,6 +12,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+        'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+
+    @stack('styles')
+
 </head>
 <body>
 <div id="app">
@@ -21,6 +31,7 @@
         $arrayLinks = [
             ['link' => route('admin.users.index'), 'title' => 'Usuário'],
             ['link' => route('admin.categories.index'), 'title' => 'Categorias'],
+            ['link' => route('admin.series.index'), 'title' => 'Séries'],
         ];
         $menus = Navigation::links($arrayLinks);
         $logout = Navigation::links([

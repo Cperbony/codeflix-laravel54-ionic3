@@ -2,7 +2,7 @@
 
 namespace CodeFlix\Http\Controllers\Admin;
 
-use CodeFlix\Forms\PasswordForm;
+use CodeFlix\Forms\UserPasswordForm;
 use CodeFlix\Forms\UserForm;
 use CodeFlix\Models\User;
 use CodeFlix\Repositories\UserRepository;

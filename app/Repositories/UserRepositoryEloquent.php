@@ -40,13 +40,18 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     }
 
     /**
-     * @param $data
+     *
      * @param $id
+     * @return mixed
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function updatePassword($data, $id){
-        $data['password'] = bcrypt($data['password']);
-        parent::update($data, $id);
+    public function updatePassword($attributes, $id)
+    {
+        if (isset($attributes['password'])) {
+            $attributes['password'] = User::generatePassword($attributes['password']);
+        }
+        $model = parent::update($attributes, $id);
+        return $model;
     }
 
 

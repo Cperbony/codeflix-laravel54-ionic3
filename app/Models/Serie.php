@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
-class Category extends Model implements TableInterface
+class Serie extends Model implements TableInterface
 {
     use TransformableTrait;
 
     protected $fillable = [
-        'name'
+        'title',
+        'description'
     ];
 
     /**
@@ -22,7 +23,7 @@ class Category extends Model implements TableInterface
      */
     public function getTableHeaders()
     {
-        return ['#', 'name'];
+        return ['#', 'Título', 'Descrição'];
     }
 
     /**
@@ -37,8 +38,10 @@ class Category extends Model implements TableInterface
         switch ($header) {
             case '#':
                 return $this->id;
-            case 'name':
-                return $this->name;
+            case 'Título':
+                return $this->title;
+            case 'Descrição':
+                return $this->description;
         }
     }
 }
