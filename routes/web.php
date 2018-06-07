@@ -32,33 +32,32 @@ Route::get('email-verification/check/{token}', 'EmailVerificationController@getV
     ->name('email-verification.check');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin\\'], function () {
-        Route::group(['middleware' => ['isVerified', 'can:admin']], function () {
-            Route::post('logout', 'Auth\LoginController@logout')
-                ->name('logout');
-            Route::get('dashboard', function () {
-                return view('admin.dashboard');
-            });
 
-            Route::get('users-settings/change-password', 'Auth\UserSettingsController@changePassword')
-                ->name('users-settings.change-password');
-
-            Route::put('users-settings/change-password', 'Auth\UserSettingsController@updatePassword')
-                ->name('users-settings.update-password');
-
-            Route::resource('users', 'UsersController');
-            Route::resource('users-settings', 'Auth\UserSettingsController');
-            Route::resource('categories', 'CategoriesController');
-            Route::resource('series', 'SeriesController');
-
+    Route::group(['middleware' => ['isVerified', 'can:admin']], function () {
+        Route::post('logout', 'Auth\LoginController@logout')
+            ->name('logout');
+        Route::get('dashboard', function () {
+            return view('admin.dashboard');
         });
 
-        Route::get('login', 'Auth\LoginController@showLoginForm')
-            ->name('login');
+        Route::get('users-settings/change-password', 'Auth\UserSettingsController@changePassword')
+            ->name('users-settings.change-password');
 
-        Route::post('login', 'Auth\LoginController@login');
+        Route::put('users-settings/change-password', 'Auth\UserSettingsController@updatePassword')
+            ->name('users-settings.update-password');
 
-
+        Route::resource('users', 'UsersController');
+        Route::resource('users-settings', 'Auth\UserSettingsController');
+        Route::resource('categories', 'CategoriesController');
+        Route::resource('series', 'SeriesController');
+        Route::resource('videos', 'VideosController');
     });
+
+    Route::get('login', 'Auth\LoginController@showLoginForm')
+        ->name('login');
+
+    Route::post('login', 'Auth\LoginController@login');
+});
 
 
 //Efetuar login via força bruta, passando um ID fixo.
