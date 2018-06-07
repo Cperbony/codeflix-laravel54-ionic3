@@ -50,7 +50,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin\\'], 
         Route::resource('users-settings', 'Auth\UserSettingsController');
         Route::resource('categories', 'CategoriesController');
         Route::resource('series', 'SeriesController');
+
+        Route::group(['prefix' => 'videos', 'as' => 'videos.'], function () {
+            Route::get('{video}/relations', 'VideoRelationsControllers@create')
+                ->name('relations.create');
+
+            Route::post('{video}/relations', 'VideoRelationsControllers@store')
+                ->name('relations.store');
+        });
         Route::resource('videos', 'VideosController');
+
     });
 
     Route::get('login', 'Auth\LoginController@showLoginForm')

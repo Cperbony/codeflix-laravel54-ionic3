@@ -5,7 +5,7 @@
         <div class="row">
             @component('admin.videos.tabs-component', ['video' => $form->getModel()])
                 <div class="col-md-12">
-                    <h4>Editar Vídeo</h4>
+                    <h4>Série e Categorias</h4>
                 </div>
                 <?php $icon = Icon::create('pencil'); ?>
                 {!!

@@ -10,7 +10,7 @@ class VideoForm extends Form
     {
         $this
             ->add('title', 'text', [
-                'rules' => 'required?max:255'
+                'rules' => 'required|max:255'
             ])
             ->add('description', 'textarea', [
                 'rules' => 'required'
